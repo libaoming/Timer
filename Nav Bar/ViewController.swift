@@ -18,12 +18,7 @@ class ViewController: UIViewController {
     
     @IBAction func substractTen(_ sender: AnyObject) {
         
-        if n < 10 && n > 0 {
-            n -= 1
-            
-        }else if n <= 0 {
-             n = 0
-        }else {
+        if n >= 10  {
             n -= 10
         }
        
@@ -71,11 +66,15 @@ class ViewController: UIViewController {
     func processTimer(){
         
         writeTimerLabel()
-        n += 1
+        n -= 1
     }
     
     func writeTimerLabel(){
-        timerLabel.text = "\(n)"
+        if n >= 0 {
+            timerLabel.text = "\(n)"
+        } else {
+            timer.invalidate()
+        }
     }
 
 
